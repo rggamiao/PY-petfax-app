@@ -1,103 +1,147 @@
 /* VARIABLES */
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Abel&family=Bowlby+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Condensed:wght@700&display=swap');
+
 :root {
     /* fonts */ 
-    --header-font: 'Bowlby One', impact;
-    --accent-font: 'Abel', verdana; 
-    --body-font: 'ABeeZee', helvetica;
+    --header-font: 'Roboto Condensed', sans-serif;
+    --body-font: 'Poppins', sans-serif;
     /* colors */ 
-    --light-accent: #F5F3EB; 
-    --main-accent: #7FA4AD;
-    --second-accent: #DE9D49;
+    --straw-hat: #D32F2F;
+    --sea-blue: #1976D2;
+    --gold: #FFC107;
+    --off-white: #FAFAFA;
+    --dark-gray: #212121;
 }
 
 /* GENERAL */
 body {
-    background: var(--light-accent);
+    background: var(--off-white);
     font-family: var(--body-font);
-}
-.container {
-    width: 50%;
-    margin: 2em auto;
-    padding: 1em 3em 3em 3em;
-    border-radius: 1em;
-    background: white;
-    box-shadow: 2px 2px #ddd;
-}
-h1 {
+    color: var(--dark-gray);
+    line-height: 1.6;
     margin: 0;
-    color: var(--main-accent);
-    font-family: 'Bowlby One', impact;
-    font-size: 4em;
-    text-align: center;
-}
-h2 {
-    color: var(--second-accent);
-    margin: 0.5em 0;
-}
-a {
-    font-family: var(--accent-font);
-    text-decoration: none;
-    color: var(--main-accent);
-}
-.callout {
-    background: #eee;
-    padding: 0.5em;
-    border-radius: 1em;
-    text-align: center;
-    font-family: var(--accent-font);
-    font-weight: 400;
+    padding: 0;
 }
 
-/* PETS */ 
-.pets-container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1em 0;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 2em;
 }
-.pets-container img {
-    width: 100%;
-    border-radius: 1em;
-    display: block;
+
+h1, h2 {
+    font-family: var(--header-font);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    color: var(--straw-hat);
+    font-size: 3em;
+    text-align: center;
     margin-bottom: 0.5em;
 }
-.pet {
-    width: 46%;
-    margin: 0 0.5em;
+
+h2 {
+    color: var(--sea-blue);
+    font-size: 2em;
+    border-bottom: 2px solid var(--sea-blue);
+    padding-bottom: 0.25em;
+    margin-top: 1.5em;
+}
+
+a {
+    color: var(--sea-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--straw-hat);
+}
+
+.callout {
+    background: var(--gold);
+    color: var(--dark-gray);
+    padding: 1em;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: 700;
+    margin: 1em 0;
+}
+
+/* PETS */
+.pets-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.pet img {
+    width: 100%;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.pet img:hover {
+    transform: scale(1.05);
 }
 
 /* FACTS */
 .facts-container {
-    width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
+
 input, textarea {
     width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 0.5em;
-    padding: 1em;
-    box-sizing: border-box;
+    border: 1px solid var(--sea-blue);
+    border-radius: 4px;
+    padding: 0.75em;
+    margin-bottom: 1em;
+    font-family: var(--body-font);
 }
+
 textarea {
     resize: vertical;
+    min-height: 100px;
 }
+
 input:focus, textarea:focus {
     outline: none;
-    border: 1px solid var(--main-accent);
+    border-color: var(--straw-hat);
 }
+
 input[type="submit"] {
-    border: none;
-    background: var(--second-accent);
+    background: var(--straw-hat);
+    color: var(--off-white);
     font-family: var(--header-font);
     font-size: 1em;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    color: whitesmoke;
-    padding: 0.5em;
-    transition-property: background;
-    transition-duration: 0.2s;
-}
-input[type="submit"]:hover {
+    border: none;
+    padding: 0.75em 1.5em;
     cursor: pointer;
-    background: var(--main-accent);
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: var(--sea-blue);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
 }
